@@ -13,11 +13,9 @@ export class TableComponent {
   public data: any;
   public filtersActive: any;
   public filtersShow: any;
-  constructor() {
+  constructor() {}
 
-  }
-
-  ngOnChanges(changes: any) {
+  ngOnChanges(changes: any): void {
 
     if(!changes.tableData.firstChange){
       this.data = []

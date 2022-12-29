@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UserModel } from 'models/user.model';
 import { GithubService } from 'services/github.service';
+import { DomSanitizer } from '@angular/platform-browser'
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,8 @@ export class AppComponent {
   public loading: boolean;
   public loadingTable: boolean;
 
-  constructor(private githubService: GithubService) {
+  constructor(private githubService: GithubService,
+    private sanitized: DomSanitizer) {
     this.initTable();
   }
 
@@ -51,11 +53,11 @@ export class AppComponent {
   private initTable(): void {
     // Se montan las columnas de la tabla.
     this.tableColumns = [
-      { name: 'Nombre del repo', value: 'name' },
-      { name: 'Descripcion', value: 'description' },
-      { name: 'Enlace al repo', value: 'url' },
-      { name: 'Estrellas', value: 'stargazers_count' },
-      { name: 'Lenguajes de programacion', value: 'language' },
+      { name: 'Nombre del repo', value: 'name', columnWidth: '15%'},
+      { name: 'Descripcion', value: 'description', columnWidth: '30%'},
+      { name: 'Enlace al repo', value: 'url', columnWidth: '35%'},
+      { name: 'Estrellas', value: 'stargazers_count', columnWidth: '5%'},
+      { name: 'Lenguajes de programacion', value: 'language', columnWidth: '15%'},
     ];
   }
 
