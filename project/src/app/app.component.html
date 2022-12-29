@@ -1,1 +1,12 @@
-<app-main></app-main>
+<div class="content" *ngIf="!loading">
+  <div class="header">
+    <app-search class="searchContainer" (searchUser)="getUserData($event)"></app-search>
+    <app-user-info class="userInfoContainer" *ngIf="userData" [userData]="userData"></app-user-info>
+  </div>
+  <div class="body">
+    <cmp-table *ngIf="!loadingTable && tableData.length > 0" [columns]="tableColumns"[tableData]="tableData"></cmp-table>
+    <img *ngIf="loadingTable" src='../assets/loading-gif.gif' alt="loading..." />
+  </div>
+</div>
+<img *ngIf="loading" src='../assets/loading-gif.gif' alt="loading..." />
+

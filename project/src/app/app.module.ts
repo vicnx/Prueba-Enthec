@@ -4,12 +4,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from "./shared/shared.module";
-import { MainComponent } from './components/main/main.component';
+import { UserInfoComponent } from './components/user-info/user-info.component';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        MainComponent
+        UserInfoComponent,
+        SearchComponent
     ],
     providers: [],
     bootstrap: [AppComponent],

@@ -1,0 +1,9 @@
+<div class="userInfo" *ngIf="userData">
+  <div class="avatar">
+    <img [src]='userData? userData.avatar_url : "../assets/default-avatar.jpg"' alt="avatar" />
+  </div>
+  <div class="userData">
+    <label class="name">{{userData.name}}</label>
+    <label class="description">{{userData.bio}}</label>
+  </div>
+</div>
