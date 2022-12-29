@@ -14,9 +14,10 @@ export class AppComponent {
   public tableData: any = [];
   public loading: boolean;
   public loadingTable: boolean;
+  public showAlert: boolean = false;
+  public errorMsg: string;
 
-  constructor(private githubService: GithubService,
-    private sanitized: DomSanitizer) {
+  constructor(private githubService: GithubService) {
     this.initTable();
   }
 
@@ -41,13 +42,23 @@ export class AppComponent {
         },
         error: (error) => {
           console.log(error.message);
+          this.showAlerts(error.message)
           this.loading = false;
           this.loadingTable = false;
         },
       });
     } else {
-      console.log('No hay usuario intruducido');
+      this.showAlerts('No has introducido ningún usuario')
     }
+  }
+
+  public showAlerts(msg:string): void{
+    this.showAlert = true;
+    this.errorMsg = msg;
+    setTimeout(() => {
+      this.showAlert = false;
+      this.errorMsg = '';
+    }, 2500);
   }
 
   private initTable(): void {
@@ -60,6 +71,8 @@ export class AppComponent {
       { name: 'Lenguajes de programacion', value: 'language', columnWidth: '15%'},
     ];
   }
+
+
 
     // private getUsers(): void{
   //   this.githubService.getData().subscribe({
