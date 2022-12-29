@@ -1,10 +1,17 @@
 <div class="table_container">
-  <div class="filters">
-    <label class="filter" *ngFor="let filter of filtersShow">
-      <input type="checkbox" name="filterLanguage" [id]="filter.name" [checked]="filter.selected"
-        [(ngModel)]="filter.selected" (change)="refreshFilters()"> {{filter.name}}
-    </label>
+  <div class="table_header">
+    <div class="searchTable">
+      <input type="text" [(ngModel)]="searchName" placeholder="Buscar repositorio" />
+      <button (click)="searchByName()">Buscar repos</button>
+    </div>
+    <div class="filters">
+      <label class="filter" *ngFor="let filter of filtersShow">
+        <input type="checkbox" name="filterLanguage" [id]="filter.name" [checked]="filter.selected"
+          [(ngModel)]="filter.selected" (change)="refreshFilters()"> {{filter.name}}
+      </label>
+    </div>
   </div>
+
   <table class="table table-bordered">
     <thead>
       <tr>

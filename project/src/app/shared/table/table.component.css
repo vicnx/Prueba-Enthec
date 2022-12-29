@@ -3,6 +3,11 @@
   display: flex;
   flex-direction: column;
 }
+.table_header{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
 .filters{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -35,4 +40,28 @@ th {
   background: #eee;
   position: sticky;
   top: 0;
+}
+
+.searchTable {
+  display: flex;
+  align-items: flex-end;
+  justify-content: end;
+  /* justify-content:space-around; */
+}
+.searchTable input {
+  width: 20%;
+  min-width: 60px;
+  height: 20px;
+  border-radius: 15px;
+}
+.searchTable button{
+  margin-left: 10px;
+  height: 25px;
+  border-radius: 15px;
+  background-color: white;
+  cursor: pointer;
+}
+.searchTable button:hover{
+  transition: 0.5s;
+  background-color: rgb(238, 238, 238);
 }

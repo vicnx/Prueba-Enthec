@@ -13,10 +13,10 @@ export class TableComponent {
   public data: any;
   public filtersActive: any;
   public filtersShow: any;
+  public searchName: string;
   constructor() {}
 
   ngOnChanges(changes: any): void {
-
     if(!changes.tableData.firstChange){
       this.data = []
       this.data = [...changes.tableData.currentValue]
@@ -31,5 +31,9 @@ export class TableComponent {
 
   public refreshFilters(): void{
     this.filtersActive = this.filtersShow.filter((filter: any) =>filter.selected).map((fil:any)=>fil.name);
+  }
+
+  public searchByName(): void{
+    this.data = [...this.data.filter((el:any)=>(el.name.toLowerCase().includes(this.searchName.toLowerCase())))]
   }
 }
