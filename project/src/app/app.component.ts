@@ -11,8 +11,8 @@ import { GithubService } from 'services/github.service';
 })
 export class AppComponent {
   public userData: UserModel;
-  public tableColumns: ColumnModel[];
-  public tableData: ReposModel[];
+  public tableColumns: ColumnModel[] = [];
+  public tableData: ReposModel[] = [];
   public loading: boolean;
   public loadingTable: boolean;
   public showAlert: boolean = false;
@@ -30,7 +30,6 @@ export class AppComponent {
           this.loading = false;
           this.loadingTable = true;
           this.userData = userData;
-          console.log(userData);
           if (userData) {
             this.githubService.getReposUserData(userData?.login).subscribe({
               next: (repos: ReposModel[]) => {
