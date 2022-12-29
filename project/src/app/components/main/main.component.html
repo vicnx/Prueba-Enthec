@@ -1,0 +1,23 @@
+<div class="content" *ngIf="!loading">
+  <div class="header">
+    <div class="search">
+      <input class="form-control" type="text" [(ngModel)]="userSelected" placeholder="Buscar usuario de Github" />
+      <button (click)="getUserData()">Buscar</button>
+    </div>
+    <div class="userInfo" *ngIf="userData">
+      <div class="avatar">
+        <img [src]='userData? userData.avatar_url : "../assets/default-avatar.jpg"' alt="avatar" />
+      </div>
+      <div class="userData">
+        <label class="name">{{userData.name}}</label>
+        <label class="description">{{userData.bio}}</label>
+      </div>
+    </div>
+
+  </div>
+  <div class="body">
+    <cmp-table *ngIf="!loadingTable && tableData.length > 0" [columns]="tableColumns"[tableData]="tableData"></cmp-table>
+    <img *ngIf="loadingTable" src='../assets/loading-gif.gif' alt="loading..." />
+  </div>
+</div>
+<img *ngIf="loading" src='../assets/loading-gif.gif' alt="loading..." />
