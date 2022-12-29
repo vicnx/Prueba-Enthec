@@ -33,6 +33,7 @@ export class AppComponent {
           if (userData) {
             this.githubService.getReposUserData(userData?.login).subscribe({
               next: (repos: ReposModel[]) => {
+                console.log(repos);
                 //Al obtener los repos se mandan al componente encargado de la tabla.
                 this.tableData = repos;
                 this.loadingTable = false;
@@ -56,7 +57,7 @@ export class AppComponent {
     this.tableColumns = [
       { name: 'Nombre del repo', value: 'name', columnWidth: '15%' },
       { name: 'Descripcion', value: 'description', columnWidth: '30%' },
-      { name: 'Enlace al repo', value: 'url', columnWidth: '30%' },
+      { name: 'Enlace al repo', value: 'html_url', columnWidth: '30%' },
       { name: 'Estrellas', value: 'stargazers_count', columnWidth: '10%' },
       { name: 'Lenguajes de programacion', value: 'language', columnWidth: '15%' },
     ];
