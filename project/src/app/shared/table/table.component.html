@@ -17,12 +17,12 @@
       <tr>
         <th *ngFor="let column of columns" [ngStyle]="{'width': column.columnWidth}" (click)="sortTable(column.value)">
           {{column.name}}
-          <span *ngIf="column.value == 'name' && directionSortName == 'up'">UP</span>
-          <span *ngIf="column.value == 'name' && directionSortName == 'down'">down</span>
-          <span *ngIf="column.value == 'name' && directionSortName == 'default'">DEFAULT</span>
-          <span *ngIf="column.value == 'stargazers_count' && directionSortStars == 'up'">UPstar</span>
-          <span *ngIf="column.value == 'stargazers_count' && directionSortStars == 'down'">DownStar</span>
-          <span *ngIf="column.value == 'stargazers_count' && directionSortStars == 'default'">DEFAULT</span>
+          <span *ngIf="column.value == 'name' && directionSortName == 'up'"><i class="fa fa-sort-up"></i></span>
+          <span *ngIf="column.value == 'name' && directionSortName == 'down'"><i class="fa fa-sort-down"></i></span>
+          <span *ngIf="column.value == 'name' && directionSortName == 'default'"><i class="fa fa-sort"></i></span>
+          <span *ngIf="column.value == 'stargazers_count' && directionSortStars == 'up'"><i class="fa fa-sort-up"></i></span>
+          <span *ngIf="column.value == 'stargazers_count' && directionSortStars == 'down'"><i class="fa fa-sort-down"></i></span>
+          <span *ngIf="column.value == 'stargazers_count' && directionSortStars == 'default'"><i class="fa fa-sort"></i></span>
 
         </th>
       </tr>
