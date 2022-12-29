@@ -1,3 +1,6 @@
+<div class="filters">
+    <label *ngFor="let filter of filtersShow"><input type="checkbox" name="filterLanguage" [id]="filter.name" [checked]="filter.selected" [(ngModel)]="filter.selected" (change)="refreshFilters()"> {{filter.name}}</label>
+</div>
 <table class="table table-bordered">
   <thead>
     <tr>
@@ -5,7 +8,7 @@
     </tr>
   </thead>
   <tbody *ngIf="data.length > 0">
-    <tr *ngFor="let item of data">
+    <tr *ngFor="let item of data | languageFilter: filtersActive">
       <td *ngFor="let column of columns">{{item[column.value]}}</td>
     </tr>
   </tbody>
