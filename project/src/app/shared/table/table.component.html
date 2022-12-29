@@ -1,0 +1,12 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <td *ngFor="let column of columns"> {{column.name}}</td>
+    </tr>
+  </thead>
+  <tbody *ngIf="data.length > 0">
+    <tr *ngFor="let item of data">
+      <td *ngFor="let column of columns">{{item[column.value]}}</td>
+    </tr>
+  </tbody>
+</table>
