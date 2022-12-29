@@ -34,6 +34,10 @@ export class TableComponent {
   }
 
   public searchByName(): void{
-    this.data = [...this.data.filter((el:any)=>(el.name.toLowerCase().includes(this.searchName.toLowerCase())))]
+    if(this.searchName){
+      this.data = [...this.tableData.filter((el:any)=>(el.name.toLowerCase().includes(this.searchName.toLowerCase())))]
+    }else{
+      this.data = [...this.tableData]
+    }
   }
 }
