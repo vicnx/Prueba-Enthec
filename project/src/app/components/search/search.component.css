@@ -5,15 +5,16 @@
   /* justify-content:space-around; */
 }
 .search input {
+  padding: 10px;
   width: 60%;
-  height: 50px;
+  height: 35px;
   border-radius: 15px;
   font-size: large;
 }
 .search button{
   margin-left: 10px;
   width: 100px;
-  height: 55px;
+  height: 60px;
   border-radius: 15px;
   background-color: white;
   font-size: large;

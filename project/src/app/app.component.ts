@@ -55,8 +55,8 @@ export class AppComponent {
     this.tableColumns = [
       { name: 'Nombre del repo', value: 'name', columnWidth: '15%'},
       { name: 'Descripcion', value: 'description', columnWidth: '30%'},
-      { name: 'Enlace al repo', value: 'url', columnWidth: '35%'},
-      { name: 'Estrellas', value: 'stargazers_count', columnWidth: '5%'},
+      { name: 'Enlace al repo', value: 'url', columnWidth: '30%'},
+      { name: 'Estrellas', value: 'stargazers_count', columnWidth: '10%'},
       { name: 'Lenguajes de programacion', value: 'language', columnWidth: '15%'},
     ];
   }
