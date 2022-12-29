@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { SharedModule } from "./shared/shared.module";
 import { UserInfoComponent } from './components/user-info/user-info.component';
 import { SearchComponent } from './components/search/search.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
     declarations: [
@@ -19,7 +20,8 @@ import { SearchComponent } from './components/search/search.component';
         BrowserModule,
         HttpClientModule,
         FormsModule,
-        SharedModule
+        SharedModule,
+        FontAwesomeModule
     ]
 })
 export class AppModule { }

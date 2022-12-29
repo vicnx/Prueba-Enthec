@@ -15,7 +15,16 @@
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th *ngFor="let column of columns" [ngStyle]="{'width': column.columnWidth}"> {{column.name}}</th>
+        <th *ngFor="let column of columns" [ngStyle]="{'width': column.columnWidth}" (click)="sortTable(column.value)">
+          {{column.name}}
+          <span *ngIf="column.value == 'name' && directionSortName == 'up'">UP</span>
+          <span *ngIf="column.value == 'name' && directionSortName == 'down'">down</span>
+          <span *ngIf="column.value == 'name' && directionSortName == 'default'">DEFAULT</span>
+          <span *ngIf="column.value == 'stargazers_count' && directionSortStars == 'up'">UPstar</span>
+          <span *ngIf="column.value == 'stargazers_count' && directionSortStars == 'down'">DownStar</span>
+          <span *ngIf="column.value == 'stargazers_count' && directionSortStars == 'default'">DEFAULT</span>
+
+        </th>
       </tr>
     </thead>
     <tbody *ngIf="data.length > 0">

@@ -14,6 +14,8 @@ export class TableComponent {
   public filtersActive: any;
   public filtersShow: any;
   public searchName: string;
+  public directionSortName: string = 'default';
+  public directionSortStars: string = 'default';
   constructor() {}
 
   ngOnChanges(changes: any): void {
@@ -39,5 +41,29 @@ export class TableComponent {
     }else{
       this.data = [...this.tableData]
     }
+  }
+
+  public sortTable(column: string): void{
+    let sortedData = [];
+    if(column == 'name'){
+      if(this.directionSortName == 'up'){
+        this.directionSortName = 'down';
+        sortedData = [...this.data.sort((a:any, b:any)=>(a[column] > b[column] ? 1 : -1))]
+      }else{
+        this.directionSortName = 'up';
+        sortedData = [...this.data.sort((a:any, b:any)=>(a[column] < b[column] ? 1 : -1))]
+      }
+    }else if(column == 'stargazers_count'){
+      if(this.directionSortStars == 'up'){
+        this.directionSortStars = 'down';
+        sortedData = [...this.data.sort((a:any, b:any)=>(a[column] - b[column]))]
+      }else{
+        this.directionSortStars = 'up';
+        sortedData = [...this.data.sort((a:any, b:any)=>(b[column] - a[column]))]
+      }
+    }else{
+      sortedData = this.data;
+    }
+    this.data = [...sortedData]
   }
 }
